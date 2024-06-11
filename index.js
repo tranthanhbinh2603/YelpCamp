@@ -86,12 +86,13 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 
 //Cấu hình lệnh ở kết nối máy chủ, đã thêm cách để kết nối mongoDB Atlas
-let connectString = "";
-if (process.env.NODE_ENV !== "production") {
-	connectString = "mongodb://127.0.0.1:27017/yelpCampDB";
-} else {
-	connectString = process.env.MongoDBAtlasStringConnect; //Cấu hình link connect MongoDB Atlas ở đây
-}
+// let connectString = "";
+// if (process.env.NODE_ENV !== "production") {
+// 	connectString = "mongodb://127.0.0.1:27017/yelpCampDB";
+// } else {
+// 	connectString = process.env.MongoDBAtlasStringConnect; //Cấu hình link connect MongoDB Atlas ở đây
+// }
+const connectString = process.env.MongoDBAtlasStringConnect;
 mongoose
 	.connect(connectString)
 	.then(() => {})
